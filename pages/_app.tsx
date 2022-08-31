@@ -6,6 +6,7 @@ import { Hydrate, QueryClient, QueryClientProvider } from "@tanstack/react-query
 import { useState } from "react";
 import { CartProvider } from "../context/context";
 import { Layout } from "../modules/UI/Layout";
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
 

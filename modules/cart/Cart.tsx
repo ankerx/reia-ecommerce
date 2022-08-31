@@ -1,20 +1,20 @@
-import { Fragment, useEffect, useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { commerce } from "../../lib/commerce";
+
+import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import { CartItems } from "./CartItems";
+import { LoadingSpinner } from "../UI/LoadingSpinner";
+import { Button } from "@material-tailwind/react";
+
 import { useCart } from "../../core/hooks/useCart";
 import { useCartContext } from "../../context/useCartContext";
-import { LoadingSpinner } from "../UI/LoadingSpinner";
-import { loadStripe } from "@stripe/stripe-js";
-import { commerce } from "../../lib/commerce";
-import { Button } from "@material-tailwind/react";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "");
 export const Cart = () => {
-  const [order, setOrder] = useState();
   const { toggleCart, isOpen } = useCartContext();
   const { data: products, isLoading, error } = useCart();
-  console.log(order);
 
   if (error) return <p>'An error has occurred:{error.message}'</p>;
 
@@ -61,9 +61,9 @@ export const Cart = () => {
         },
         shipping: {
           name: "Jan Kowalski",
-          street: "Aluzyjna",
+          street: "Fajna",
           town_city: "Warsaw",
-          postal_zip_code: "03-149",
+          postal_zip_code: "03-160",
           country: "PL",
         },
         line_items: products.line_items,

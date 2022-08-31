@@ -4,16 +4,19 @@ interface IProps {
   min: number;
   max: number;
   onChange: ({ min, max }: { min: number; max: number }) => void;
+  // onChange: (min: number, max:number) => void;
 }
 export const RangeSlider = ({ min, max, onChange }: IProps) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
+
   const minValRef = useRef<HTMLInputElement>(null);
   const maxValRef = useRef<HTMLInputElement>(null);
   const range = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     onChange({ min: minVal, max: maxVal });
-  }, [minVal, maxVal, onChange]);
+  }, [minVal, maxVal]);
   return (
     <div className=" grid place-items-center bg-red-300">
       <div className="flex flex-col">
