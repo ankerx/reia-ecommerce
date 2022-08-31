@@ -1,7 +1,7 @@
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 
 import { NextPage } from "next";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { getProducts, useProducts } from "../core/hooks/useProducts";
 import { useCategories } from "../modules/products/hooks/useCategories";
@@ -11,28 +11,52 @@ import { AllProducts } from "../modules/products/AllProducts";
 import { Banner } from "../modules/products/Banner";
 import { RangeSlider } from "../modules/products/components/Slider";
 import { LoadingSpinner } from "../modules/UI/LoadingSpinner";
-import { SearchBar } from "../modules/products/components/SearchBar";
+import { Input } from "@material-tailwind/react";
 
-export const categories = ["oils", "candles", "spa"] as const;
-export type CategoriesType = typeof categories[number];
+// export const categories = ["oils", "candles", "spa"] as const;
+// export type CategoriesType = typeof categories[number];
 
 const Products: NextPage = () => {
   const { data: products, isLoading, error } = useProducts();
   const { data } = useCategories();
+
+  const [filteredProducts, setFilteredProducts] = useState(products?.data || []);
+
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(200);
+
   const categories = data?.data.map((item) => item.slug);
-  // console.log(categories);
+
   const [category, setCategory] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   if (isLoading) return <LoadingSpinner />;
 
   if (error) return <p>'An error has occurred:{error.message}'</p>;
 
+  const handleFilter = (min: number, max: number) => {
+    setMinPrice(min);
+    setMaxPrice(max);
+
+    setFilteredProducts(
+      products.data.filter(({ price }) => price.raw > minPrice && price.raw < maxPrice),
+    );
+  };
+
   const handleSelect = (event: ChangeEvent<HTMLSelectElement>) => {
     setCategory(event.target.value);
-    // console.log(category);
   };
+
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+
+    const searchedProducts = products.data.filter((product) => {
+      return product.name.toLowerCase().includes(event.target.value.toLowerCase());
+    });
+
+    setFilteredProducts(searchedProducts);
+  };
+
   return (
     <section className="bg-main min-h-[100vh] text-center">
       <Banner />
@@ -41,19 +65,12 @@ const Products: NextPage = () => {
           All products are made by myself
         </h3>
         <div className="lg:flex justify-between relative">
-          <SearchBar />
+          <Input label="Search for a product" onChange={handleSearch} />
           <div className="flex flex-col w-1/4">
             <Select onChange={handleSelect} options={categories} />
-            <RangeSlider
-              onChange={({ min, max }: { min: number; max: number }) => {
-                setMinPrice(min);
-                setMaxPrice(max);
-              }}
-              min={0}
-              max={200}
-            />
+            <RangeSlider onChange={({ min, max }) => handleFilter(min, max)} min={0} max={200} />
           </div>
-          <AllProducts products={products} minPrice={minPrice} maxPrice={maxPrice} />
+          <AllProducts products={products} filteredProducts={filteredProducts} />
         </div>
       </div>
     </section>

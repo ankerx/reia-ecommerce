@@ -1,5 +1,6 @@
 import Image from "next/image";
 import heroimg from "../../assets/products.jpg";
+
 export const Banner = () => {
   return (
     <div className="relative w-full">

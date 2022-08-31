@@ -1,20 +1,18 @@
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { NextPage } from "next";
 import Head from "next/head";
-import { useCartContext } from "../context/useCartContext";
-import { useAddToCart, useCart } from "../core/hooks/useCart";
+import Link from "next/link";
+
+import { useCart } from "../core/hooks/useCart";
 import { getProducts, useProducts } from "../core/hooks/useProducts";
-import { Cart } from "../modules/cart/Cart";
+
 import { ProductItem } from "../modules/products/Product";
 import { HeroSection } from "../modules/home/HeroSection";
 import { LoadingSpinner } from "../modules/UI/LoadingSpinner";
 import { Heading } from "../modules/home/Heading";
 import { Button } from "@material-tailwind/react";
-import Link from "next/link";
 
 const Home: NextPage = () => {
-  const { isOpen } = useCartContext();
-
   const { data: products, isLoading, error } = useProducts();
 
   const { data } = useCart();

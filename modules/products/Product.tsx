@@ -5,12 +5,13 @@ import {
   CardFooter,
   Typography,
   Button,
-  IconButton,
 } from "@material-tailwind/react";
-import Image from "next/image";
-import { Product } from "@chec/commerce.js/types/product";
-import { useAddToCart } from "../../core/hooks/useCart";
 import { LoadingSpinner } from "../UI/LoadingSpinner";
+import Image from "next/image";
+
+import { Product } from "@chec/commerce.js/types/product";
+
+import { useAddToCart } from "../../core/hooks/useCart";
 
 interface IProps {
   product: Product;

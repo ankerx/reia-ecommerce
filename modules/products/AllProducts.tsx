@@ -1,53 +1,13 @@
 import { ProductCollection } from "@chec/commerce.js/features/products";
-import { useEffect, useState } from "react";
-import { useCategories } from "./hooks/useCategories";
-import { ProductItem } from "./Product";
+import { Product } from "@chec/commerce.js/types/product";
 
+import { ProductItem } from "./Product";
 interface IProps {
   products: ProductCollection;
-  maxPrice: number;
-  minPrice: number;
+  filteredProducts: Product[];
 }
-export const AllProducts = ({ products, minPrice, maxPrice }: IProps) => {
+export const AllProducts = ({ products, filteredProducts }: IProps) => {
   const categories = products.data.map((i) => i.categories.map((i) => i.slug));
-
-  const [filteredProducts, setFilteredProducts] = useState(products.data);
-
-  useEffect(() => {
-    setFilteredProducts(
-      products.data.filter(({ price }) => price.raw > minPrice && price.raw < maxPrice),
-    );
-  }, [minPrice, maxPrice]);
-
-  const obj = [
-    {
-      name: "ball",
-      categories: [
-        {
-          slug: "sport",
-        },
-      ],
-    },
-    {
-      name: "shoes",
-      categories: [
-        {
-          slug: "fashion",
-        },
-        {
-          slug: "new",
-        },
-        {
-          slug: "sport",
-        },
-      ],
-    },
-  ];
-
-  const cats = obj.map((item) => item.categories.map((i) => i.slug)).flat();
-  //  cats.filter((category) => category === "fashion");
-  const filt = "";
-  // console.log(filt);
 
   return (
     <div className="">

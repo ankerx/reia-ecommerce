@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Navbar, MobileNav, Typography, Button, IconButton } from "@material-tailwind/react";
 import Link from "next/link";
+
 import { useCartContext } from "../../context/useCartContext";
 
 export default function Nav() {
@@ -9,6 +10,7 @@ export default function Nav() {
   const [width, setWidth] = useState(0);
 
   const isMobile = width < 960;
+
   const handleNav = () => {
     const w = window.innerWidth;
     if (w > 0) {
