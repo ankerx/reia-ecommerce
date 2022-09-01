@@ -1,4 +1,5 @@
 import { LineItem } from "@chec/commerce.js/types/line-item";
+import { Button } from "@material-tailwind/react";
 import Image from "next/image";
 
 import { useRemoveFromCart, useUpdateCart } from "../../core/hooks/useCart";
@@ -34,13 +35,9 @@ export const CartItem = (product: LineItem) => {
         </div>
         <div className="flex-1 flex items-end justify-between text-sm">
           <div className="flex">
-            <button
-              type="button"
-              onClick={() => mutate()}
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
+            <Button variant="text" color="brown" size="sm" onClick={() => mutate()}>
               {isRemoving ? <LoadingSpinner /> : "Remove"}
-            </button>
+            </Button>
           </div>
         </div>
       </div>

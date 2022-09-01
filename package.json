@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
+    "@material-tailwind/react": "^1.2.3",
     "@stripe/stripe-js": "^1.35.0",
     "@tanstack/react-query": "^4.2.1",
     "@types/chec__commerce.js": "^2.8.5",
@@ -28,6 +29,7 @@
     "@types/node": "18.7.9",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
     "autoprefixer": "^10.4.8",
     "eslint": "^8.23.0",
     "eslint-config-next": "^12.2.5",
