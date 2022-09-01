@@ -27,8 +27,7 @@ const Products: NextPage = () => {
 
   const categories = data?.data.map((item) => item.slug);
 
-  const [category, setCategory] = useState("");
-  const [searchValue, setSearchValue] = useState("");
+  const [categoryName, setCategoryName] = useState("");
 
   if (isLoading) return <LoadingSpinner />;
 
@@ -43,19 +42,26 @@ const Products: NextPage = () => {
     );
   };
 
-  const handleSelect = (event: ChangeEvent<HTMLSelectElement>) => {
-    setCategory(event.target.value);
+  const handleFilterByCategory = (event: ChangeEvent<HTMLSelectElement>) => {
+    setCategoryName(event.target.value);
   };
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
+    const searchValue = event.target.value;
 
-    const searchedProducts = products.data.filter((product) => {
-      return product.name.toLowerCase().includes(event.target.value.toLowerCase());
+    const searchedProducts = products.data.filter(({ name }) => {
+      return name.toLowerCase().includes(searchValue.toLowerCase());
     });
 
     setFilteredProducts(searchedProducts);
   };
+
+  // const handleFilterByCategory = (event: ChangeEvent<HTMLSelectElement>) => {
+  //   setCategoryName(event.target.value);
+  //   const categories = products.data.map((i) => i.categories.map((i) => i.slug)).flat();
+
+  //   setFilteredProducts();
+  // };
 
   return (
     <section className="bg-main min-h-[100vh] text-center">
@@ -64,10 +70,14 @@ const Products: NextPage = () => {
         <h3 className="font-OldStandard text-2xl mb-5 lg:my-10 lg:text-3xl">
           All products are made by myself
         </h3>
-        <div className="lg:flex justify-between relative">
-          <Input label="Search for a product" onChange={handleSearch} />
-          <div className="flex flex-col w-1/4">
-            <Select onChange={handleSelect} options={categories} />
+        <div className="lg:flex justify-between relative ">
+          <div className="flex flex-col w-1/4 bg-blue-gray-100">
+            <div className="max-w-sm my-10">
+              {" "}
+              <Input label="Search for a product" onChange={handleSearch} />
+            </div>
+
+            <Select onChange={handleFilterByCategory} options={categories} />
             <RangeSlider onChange={({ min, max }) => handleFilter(min, max)} min={0} max={200} />
           </div>
           <AllProducts products={products} filteredProducts={filteredProducts} />

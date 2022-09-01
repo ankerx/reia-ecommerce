@@ -4,7 +4,6 @@ interface IProps {
   min: number;
   max: number;
   onChange: ({ min, max }: { min: number; max: number }) => void;
-  // onChange: (min: number, max:number) => void;
 }
 export const RangeSlider = ({ min, max, onChange }: IProps) => {
   const [minVal, setMinVal] = useState(min);
@@ -32,7 +31,7 @@ export const RangeSlider = ({ min, max, onChange }: IProps) => {
             setMinVal(value);
             event.target.value = value.toString();
           }}
-          className=" mb-3"
+          className="mb-3"
         />
         <input
           type="range"

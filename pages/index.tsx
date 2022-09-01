@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useCart } from "../core/hooks/useCart";
 import { getProducts, useProducts } from "../core/hooks/useProducts";
 
-import { ProductItem } from "../modules/products/Product";
+import { ProductItem } from "../modules/products/ProductItem";
 import { HeroSection } from "../modules/home/HeroSection";
 import { LoadingSpinner } from "../modules/UI/LoadingSpinner";
 import { Heading } from "../modules/home/Heading";
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         <HeroSection />
         <section className="mx-6 md:mx-20 py-10 text-center">
           <Heading />
-          <div className="grid gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
+          <div className="grid gap-x-10 md:gap-x-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 place-items-center md:place-items-stretch">
             {products.data.map((product) => (
               <ProductItem key={product.id} product={product} />
             ))}
