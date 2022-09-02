@@ -6,18 +6,7 @@ interface IProps {
   products: ProductCollection;
   filteredProducts: Product[];
 }
-export const AllProducts = ({ products, filteredProducts }: IProps) => {
-  const categories = products.data.map((i) => i.categories.map((i) => i.slug)).flat();
-
-  const bycat = filteredProducts.filter((product) => {
-    product.categories.map((i) => {
-      if (i.slug === "oils") {
-        return product;
-      } else return null;
-    });
-  });
-  // console.log(bycat);
-
+export const AllProducts = ({ filteredProducts }: IProps) => {
   return (
     <div>
       <div className="grid gap-x-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-6 place-items-center md:place-items-stretch">

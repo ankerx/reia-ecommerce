@@ -16,7 +16,7 @@ export const ProductsPage = ({ products }: IProps) => {
   const { data } = useCategories();
 
   const [filteredProducts, setFilteredProducts] = useState(products?.data || []);
-  const [categoryName, setCategoryName] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(200);
@@ -36,7 +36,15 @@ export const ProductsPage = ({ products }: IProps) => {
   );
 
   const handleFilterByCategory = (event: ChangeEvent<HTMLSelectElement>) => {
-    setCategoryName(event.target.value);
+    setSelectedCategory(event.target.value);
+    console.log(selectedCategory);
+    const filteredByCategory = filteredProducts.filter((product) =>
+      product.categories.find((i) => i.slug === selectedCategory),
+    );
+    console.log(selectedCategory);
+    // console.log(filteredByCategory);
+
+    setFilteredProducts(filteredByCategory);
   };
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
