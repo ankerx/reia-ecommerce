@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Navbar, MobileNav, Typography, Button, IconButton } from "@material-tailwind/react";
 import Link from "next/link";
-
 import { useCartContext } from "../../context/useCartContext";
+import { ShoppingCartIcon } from "@heroicons/react/outline";
 
 export default function Nav() {
   const { toggleCart, isOpen } = useCartContext();
@@ -46,7 +46,7 @@ export default function Nav() {
             as="li"
             variant="small"
             color={isMobile ? "black" : "white"}
-            className="p-1 mx-4 font-normal text-md hover:underline"
+            className="p-1 mx-4 font-normal text-md hover:text-gray-200"
             key={item.name}
             onClick={() => setOpenNav(false)}
           >
@@ -66,25 +66,29 @@ export default function Nav() {
       fullWidth={true}
       color={isMobile ? "white" : "transparent"}
     >
-      <div className="container mx-auto flex items-center justify-between text-black">
-        <Typography
-          as="a"
-          href="#"
-          variant="small"
-          className="mr-4 cursor-pointer py-1.5 font-normal"
-        >
-          <span>Reia</span>
-        </Typography>
+      <div className="container mx-auto flex items-center justify-between text-black lg:text-white">
+        <Link href="/">
+          <span className="font-OldStandard text-2xl cursor-pointer py-1.5">Reia</span>
+        </Link>
         <div className="hidden lg:block">{navList}</div>
-        <Button
+        <button
           onClick={() => toggleCart()}
-          variant="outlined"
-          color="white"
-          size="sm"
-          className="hidden lg:inline-block"
+          // variant="outlined"
+          // color="white"
+          // size="sm"
+          className="hidden lg:inline-block text-white"
         >
-          <span className="text-white">Shopping cart</span>
-        </Button>
+          <ShoppingCartIcon className="h-6 w-6" />
+        </button>
+        <button
+          onClick={() => {
+            toggleCart();
+            setOpenNav(false);
+          }}
+          className="text-black  ml-auto lg:hidden"
+        >
+          <ShoppingCartIcon className="h-6 w-8" />
+        </button>
         <IconButton
           variant="text"
           className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -118,17 +122,17 @@ export default function Nav() {
       <MobileNav open={openNav} className="color-black">
         {navList}
         <Button
+          variant="outlined"
           onClick={() => {
             toggleCart();
             setOpenNav(false);
           }}
-          variant="outlined"
           color="brown"
           size="sm"
           fullWidth
           className="mb-2"
         >
-          <span className="text-black">Shoping cart</span>
+          Shopping cart
         </Button>
       </MobileNav>
     </Navbar>

@@ -9,7 +9,6 @@ interface IProps {
 export const AllProducts = ({ products, filteredProducts }: IProps) => {
   const categories = products.data.map((i) => i.categories.map((i) => i.slug)).flat();
 
-  console.log(categories);
   const bycat = filteredProducts.filter((product) => {
     product.categories.map((i) => {
       if (i.slug === "oils") {
@@ -17,10 +16,10 @@ export const AllProducts = ({ products, filteredProducts }: IProps) => {
       } else return null;
     });
   });
-  console.log(bycat);
+  // console.log(bycat);
 
   return (
-    <div className="">
+    <div>
       <div className="grid gap-x-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-6 place-items-center md:place-items-stretch">
         {filteredProducts.map((product) => (
           <ProductItem key={product.id} product={product} />

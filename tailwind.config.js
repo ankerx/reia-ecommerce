@@ -7,6 +7,7 @@ module.exports = withMT({
     extend: {
       colors: {
         main: "#FFF8F4",
+        second: "#A87E72",
       },
       fontFamily: {
         OldStandard: ["Old Standard TT", ...defaultTheme.fontFamily.sans],
