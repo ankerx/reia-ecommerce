@@ -4,7 +4,6 @@ interface IProps {
   min: number;
   max: number;
   onChange: ({ min, max }: { min: number; max: number }) => void;
-  // onChange: (min: number, max:number) => void;
 }
 export const RangeSlider = ({ min, max, onChange }: IProps) => {
   const [minVal, setMinVal] = useState(min);
@@ -16,9 +15,10 @@ export const RangeSlider = ({ min, max, onChange }: IProps) => {
 
   useEffect(() => {
     onChange({ min: minVal, max: maxVal });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [minVal, maxVal]);
   return (
-    <div className=" grid place-items-center bg-red-300">
+    <div className=" grid place-items-center mt-10">
       <div className="flex flex-col">
         <div>min {minVal}zł</div>
         <input
@@ -31,10 +31,12 @@ export const RangeSlider = ({ min, max, onChange }: IProps) => {
             const value = Math.min(+event.target.value, maxVal - 1);
             setMinVal(value);
             event.target.value = value.toString();
+            console.log(minVal);
           }}
-          className=" mb-3"
+          className="mb-3 rounded-lg appearance-none bg-brown-200"
         />
         <input
+          className="rounded-lg appearance-none bg-brown-200"
           type="range"
           min={min}
           max={max}

@@ -15,6 +15,7 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY 
 export const Cart = () => {
   const { toggleCart, isOpen } = useCartContext();
   const { data: products, isLoading, error } = useCart();
+  console.log(products);
 
   if (error) return <p>'An error has occurred:{error.message}'</p>;
 
@@ -131,8 +132,8 @@ export const Cart = () => {
                   </div>
                   <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                     <div className="flex justify-between text-base font-medium text-gray-900">
-                      <p></p>
-                      <p></p>
+                      <p>Subtotal</p>
+                      <p>{products.subtotal.formatted_with_symbol}</p>
                     </div>
 
                     <div className="mt-6">

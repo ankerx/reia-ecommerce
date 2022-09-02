@@ -1,16 +1,13 @@
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 
 import { useCart } from "../core/hooks/useCart";
 import { getProducts, useProducts } from "../core/hooks/useProducts";
 
-import { ProductItem } from "../modules/products/Product";
 import { HeroSection } from "../modules/home/HeroSection";
 import { LoadingSpinner } from "../modules/UI/LoadingSpinner";
-import { Heading } from "../modules/home/Heading";
-import { Button } from "@material-tailwind/react";
+import { HomePage } from "../modules/home/HomePage";
 
 const Home: NextPage = () => {
   const { data: products, isLoading, error } = useProducts();
@@ -30,17 +27,7 @@ const Home: NextPage = () => {
       </Head>
       <div>
         <HeroSection />
-        <section className="mx-6 md:mx-20 py-10 text-center">
-          <Heading />
-          <div className="grid gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
-            {products.data.map((product) => (
-              <ProductItem key={product.id} product={product} />
-            ))}
-          </div>
-          <Button color="brown" className="w-36">
-            <Link href="/products">See more</Link>
-          </Button>
-        </section>
+        <HomePage products={products} />
       </div>
     </div>
   );
