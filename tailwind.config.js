@@ -17,5 +17,7 @@ module.exports = withMT({
   variants: {
     extend: { cursor: ["hover", "focus"] },
   },
-  plugins: [require("@tailwindcss/aspect-ratio"), require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 });
+
+// , require("@tailwindcss/forms")

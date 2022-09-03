@@ -3,20 +3,29 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 import { getProduct, useProduct } from "../../modules/products/hooks/useProduct";
+import { SingleProduct } from "../../modules/products/product/SingleProduct";
+import { Banner } from "../../modules/UI/Banner";
 import { LoadingSpinner } from "../../modules/UI/LoadingSpinner";
-
+import image from "../../assets/singleprod.jpg";
+import { FeaturedProducts } from "../../modules/products/product/FeaturedProducts";
 const Product = () => {
   const router = useRouter();
 
   const productID = typeof router.query?.slug === "string" ? router.query.slug : "";
 
   const { data, isLoading, error } = useProduct(productID);
+  console.log(data);
 
   if (isLoading) return <LoadingSpinner />;
 
   if (error) return <p>'An error has occurred:{error.message}'</p>;
 
-  return <div>{data?.name}</div>;
+  return (
+    <section className="flex flex-col items-center ">
+      <Banner text="Single product" img={image} />
+      <SingleProduct product={data} />
+    </section>
+  );
 };
 
 export default Product;
