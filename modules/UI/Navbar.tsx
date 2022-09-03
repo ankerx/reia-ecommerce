@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react";
-import { Navbar, MobileNav, Typography, Button, IconButton } from "@material-tailwind/react";
+import { useRouter } from "next/router";
 import Link from "next/link";
+
 import { useCartContext } from "../../context/useCartContext";
+
 import { ShoppingCartIcon } from "@heroicons/react/outline";
+import { Navbar, MobileNav, Typography, Button, IconButton } from "@material-tailwind/react";
 
 export default function Nav() {
-  const { toggleCart, isOpen } = useCartContext();
+  const router = useRouter();
+  const path = router.pathname;
+
+  // const changeNavColor = path === "/" || path === "/products";
+
+  const { toggleCart } = useCartContext();
   const [openNav, setOpenNav] = useState(false);
   const [width, setWidth] = useState(0);
 
@@ -36,7 +44,7 @@ export default function Nav() {
     { name: "Massage", path: "/massage" },
     { name: "Shop", path: "/products" },
     { name: "About me", path: "/about" },
-    { name: "Contact", path: "/about" },
+    { name: "Contact", path: "/contact" },
   ];
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -46,7 +54,7 @@ export default function Nav() {
             as="li"
             variant="small"
             color={isMobile ? "black" : "white"}
-            className="p-1 mx-4 font-normal text-md hover:text-gray-200"
+            className="p-1 mx-4 font-normal text-md hover:scale-110"
             key={item.name}
             onClick={() => setOpenNav(false)}
           >
@@ -62,21 +70,20 @@ export default function Nav() {
   return (
     <Navbar
       className="mx-auto absolute
-       py-2 px-4 lg:px-8 lg:py-6 z-50 "
+       py-2 px-4 lg:px-8 lg:py-6 z-50 lg:bg-transparent "
       fullWidth={true}
       color={isMobile ? "white" : "transparent"}
     >
-      <div className="container mx-auto flex items-center justify-between text-black lg:text-white">
+      <div
+        className={`container mx-auto flex items-center justify-between text-black lg:text-white  `}
+      >
         <Link href="/">
-          <span className="font-OldStandard text-2xl cursor-pointer py-1.5">Reia</span>
+          <span className={`font-OldStandard text-2xl cursor-pointer py-1.5  `}>Reia</span>
         </Link>
         <div className="hidden lg:block">{navList}</div>
         <button
           onClick={() => toggleCart()}
-          // variant="outlined"
-          // color="white"
-          // size="sm"
-          className="hidden lg:inline-block text-white"
+          className={`hidden lg:inline-block hover:scale-110 text-white `}
         >
           <ShoppingCartIcon className="h-6 w-6" />
         </button>

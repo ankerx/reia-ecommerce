@@ -7,7 +7,6 @@ import { Input } from "@material-tailwind/react";
 import { AllProducts } from "./AllProducts";
 import { Select } from "./components/Select";
 import { RangeSlider } from "./components/Slider";
-import { commerce } from "../../lib/commerce";
 
 interface IProps {
   products: ProductCollection;
@@ -15,8 +14,8 @@ interface IProps {
 export const ProductsPage = ({ products }: IProps) => {
   const { data } = useCategories();
 
-  const [filteredProducts, setFilteredProducts] = useState(products?.data || []);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState(products?.data);
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(200);
@@ -35,17 +34,27 @@ export const ProductsPage = ({ products }: IProps) => {
     [minPrice, maxPrice, products.data],
   );
 
-  const handleFilterByCategory = (event: ChangeEvent<HTMLSelectElement>) => {
+  console.log(selectedCategory);
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedCategory(event.target.value);
-    console.log(selectedCategory);
-    const filteredByCategory = filteredProducts.filter((product) =>
-      product.categories.find((i) => i.slug === selectedCategory),
+    handleFilterByCategory();
+  };
+  const handleFilterByCategory = useCallback(() => {
+    if (selectedCategory === "all") {
+      setFilteredProducts(products.data);
+    }
+    const filteredByCategory = products.data.filter((product) =>
+      product.categories.find((i) => {
+        if (selectedCategory === "all") {
+          return products.data;
+        } else return i.slug === selectedCategory;
+      }),
     );
     console.log(selectedCategory);
-    // console.log(filteredByCategory);
+    console.log(filteredProducts);
 
     setFilteredProducts(filteredByCategory);
-  };
+  }, [filteredProducts, products.data, selectedCategory]);
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     const searchValue = event.target.value;
@@ -64,7 +73,7 @@ export const ProductsPage = ({ products }: IProps) => {
           <div className="max-w-sm my-10">
             <Input color="brown" label="Search for a product" onChange={handleSearch} />
           </div>
-          <Select onChange={handleFilterByCategory} options={categories} />
+          <Select onChange={handleChange} options={categories} />
           <RangeSlider
             onChange={({ min, max }) => handleFilterByPrice(min, max)}
             min={0}
