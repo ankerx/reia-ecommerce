@@ -16,9 +16,12 @@ export const HomePage = ({ products }: IProps) => {
           <ProductItem key={product.id} product={product} />
         ))}
       </div>
-      <Button color="brown" className="w-36">
-        <Link href="/products">See more</Link>
-      </Button>
+
+      <Link href="/products">
+        <span className="bg-brown-500 text-white px-10 py-3 rounded-lg uppercase text-sm font-semibold cursor-pointer">
+          See more
+        </span>
+      </Link>
     </section>
   );
 };

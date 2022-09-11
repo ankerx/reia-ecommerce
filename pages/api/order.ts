@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+
 import { Stripe } from "stripe";
-import { commerce } from "../../lib/commerce";
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -31,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       res.status(200).json(checkoutSession);
     } catch (err) {
-      res.status(500).json({ statusCode: 500, message: err.message });
+      res.status(500).json({ statusCode: 500, message: err });
     }
   } else {
     res.setHeader("Allow", "POST");

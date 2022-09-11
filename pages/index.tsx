@@ -1,13 +1,12 @@
-import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { NextPage } from "next";
+
+import { useCart } from "@/core/hooks/useCart";
+import { getProducts, useProducts } from "@/core/hooks/useProducts";
+import { LoadingSpinner } from "@/modules/UI/LoadingSpinner";
+import { HeroSection } from "@/modules/home/HeroSection";
+import { HomePage } from "@/modules/home/HomePage";
+import { QueryClient, dehydrate } from "@tanstack/react-query";
 import Head from "next/head";
-
-import { useCart } from "../core/hooks/useCart";
-import { getProducts, useProducts } from "../core/hooks/useProducts";
-
-import { HeroSection } from "../modules/home/HeroSection";
-import { LoadingSpinner } from "../modules/UI/LoadingSpinner";
-import { HomePage } from "../modules/home/HomePage";
 
 const Home: NextPage = () => {
   const { data: products, isLoading, error } = useProducts();

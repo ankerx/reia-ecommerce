@@ -1,14 +1,12 @@
-import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { NextPage } from "next";
-import { getProducts, useProducts } from "../core/hooks/useProducts";
+
+import { getProducts, useProducts } from "@/core/hooks/useProducts";
+import { Banner } from "@/modules/UI/Banner";
+import { LoadingSpinner } from "@/modules/UI/LoadingSpinner";
+import { ProductsPage } from "@/modules/products/ProductsPage";
+import { QueryClient, dehydrate } from "@tanstack/react-query";
 
 import image from "../assets/products.jpg";
-import { LoadingSpinner } from "../modules/UI/LoadingSpinner";
-import { ProductsPage } from "../modules/products/ProductsPage";
-import { Banner } from "../modules/UI/Banner";
-
-// export const categories = ["oils", "candles", "spa"] as const;
-// export type CategoriesType = typeof categories[number];
 
 const Products: NextPage = () => {
   const { data: products, isLoading, error } = useProducts();

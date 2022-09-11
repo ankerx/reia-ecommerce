@@ -2,5 +2,16 @@
   "tabWidth": 2,
   "printWidth": 100,
   "trailingComma": "all",
-  "semi": true
+  "semi": true,
+  "importOrder": [
+    "^@next/(.*)$|next$",
+    "^@react/(.*)$|react$",
+    "<THIRD_PARTY_MODULES>",
+    "^@core/(.*)$",
+    "^@modules/(.*)$",
+    "^@components/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
