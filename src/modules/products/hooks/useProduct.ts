@@ -1,6 +1,6 @@
 import { Product } from "@chec/commerce.js/types/product";
 import { useQuery } from "@tanstack/react-query";
-import { commerce } from "../../../lib/commerce";
+import { commerce } from "src/lib/commerce";
 
 export const getProduct = async (productID: string) => {
   const res = await commerce.products.retrieve(productID);

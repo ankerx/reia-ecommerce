@@ -1,15 +1,15 @@
-import { loadStripe } from "@stripe/stripe-js";
-import { commerce } from "../../lib/commerce";
-
-import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { XIcon } from "@heroicons/react/outline";
-import { CartItems } from "./CartItems";
-import { LoadingSpinner } from "../UI/LoadingSpinner";
 import { Button } from "@material-tailwind/react";
+import { Fragment } from "react";
 
-import { useCart } from "../../core/hooks/useCart";
-import { useCartContext } from "../../context/useCartContext";
+import { useCart } from "@/core/hooks/useCart";
+import { XIcon } from "@heroicons/react/outline";
+import { loadStripe } from "@stripe/stripe-js";
+import { useCartContext } from "src/context/useCartContext";
+import { commerce } from "src/lib/commerce";
+
+import { LoadingSpinner } from "../UI/LoadingSpinner";
+import { CartItems } from "./CartItems";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "");
 export const Cart = () => {

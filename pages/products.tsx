@@ -6,7 +6,7 @@ import { LoadingSpinner } from "@/modules/UI/LoadingSpinner";
 import { ProductsPage } from "@/modules/products/ProductsPage";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 
-import image from "../assets/products.jpg";
+import image from "../src/assets/products.jpg";
 
 const Products: NextPage = () => {
   const { data: products, isLoading, error } = useProducts();

@@ -1,10 +1,10 @@
-import { Product } from "@chec/commerce.js/types/product";
 import { Button } from "@material-tailwind/react";
-import Image from "next/image";
 import React from "react";
-import ImageGallery from "react-image-gallery";
-import { useCartContext } from "../../../context/useCartContext";
-import { useAddToCart } from "../../../core/hooks/useCart";
+
+import { useAddToCart } from "@/core/hooks/useCart";
+import { Product } from "@chec/commerce.js/types/product";
+import { useCartContext } from "src/context/useCartContext";
+
 import { FeaturedProducts } from "./FeaturedProducts";
 import { SingleProductImages } from "./SingleProductImages";
 

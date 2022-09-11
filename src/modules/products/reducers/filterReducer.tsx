@@ -5,12 +5,13 @@ export type IState = {
   filteredProducts: Product[];
   category: string;
   searchQuery: string;
-  price?: [number, number];
+  price?: string[];
 };
 
 export type Action =
   | { type: "SEARCH_PRODUCTS"; payload: string }
-  | { type: "SET_CATEGORY"; payload: string };
+  | { type: "SET_CATEGORY"; payload: string }
+  | { type: "FILTER_BY_PRICE"; payload: string[] };
 
 export const filterReducer = (state: IState, action: Action) => {
   switch (action.type) {
@@ -33,7 +34,13 @@ export const filterReducer = (state: IState, action: Action) => {
       );
 
       return { ...state, category: action.payload, filteredProducts: filteredByCategory };
+    case "FILTER_BY_PRICE":
+      const price = action.payload;
+      const filteredProducts = state.products.filter(
+        (product) => product.price.raw > Number(price[0]) && product.price.raw < Number(price[1]),
+      );
 
+      return { ...state, price: price, filteredProducts: filteredProducts };
     default:
       return state;
   }

@@ -1,7 +1,7 @@
-import { useCartContext } from "../../context/useCartContext";
+import { useCartContext } from "src/context/useCartContext";
 
-import Nav from "./Navbar";
 import { Cart } from "../cart/Cart";
+import Nav from "./Navbar";
 
 export const Header = () => {
   const { isOpen } = useCartContext();

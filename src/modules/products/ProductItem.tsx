@@ -1,20 +1,20 @@
 import {
+  Button,
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
+  CardHeader,
   Typography,
-  Button,
 } from "@material-tailwind/react";
-import { motion } from "framer-motion";
-import { LoadingSpinner } from "../UI/LoadingSpinner";
-import Image from "next/image";
 
+import { useAddToCart } from "@/core/hooks/useCart";
 import { Product } from "@chec/commerce.js/types/product";
-
-import { useAddToCart } from "../../core/hooks/useCart";
-import { useCartContext } from "../../context/useCartContext";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
+import { useCartContext } from "src/context/useCartContext";
+
+import { LoadingSpinner } from "../UI/LoadingSpinner";
 
 interface IProps {
   product: Product;
@@ -24,7 +24,13 @@ export const ProductItem = ({ product }: IProps) => {
   const { mutate, isLoading } = useAddToCart(product.id);
 
   return (
-    <motion.div layout animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>
+    <motion.div
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ delay: 0.1 }}
+    >
       <Card className="my-14 min-w-[280px] max-w-sm  ">
         <CardHeader color="brown" className="relative h-56 ">
           <Link href={`/product/${product.id}`}>

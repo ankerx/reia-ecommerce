@@ -27,6 +27,7 @@ const Configuration: UserConfig = {
         "docs",
         "env",
         "fix",
+        "feat",
         "mocks",
         "perf",
         "refactor",

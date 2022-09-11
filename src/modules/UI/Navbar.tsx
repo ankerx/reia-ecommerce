@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
-
-import { useCartContext } from "../../context/useCartContext";
+import { Button, IconButton, MobileNav, Navbar, Typography } from "@material-tailwind/react";
+import { useEffect, useState } from "react";
 
 import { ShoppingCartIcon } from "@heroicons/react/outline";
-import { Navbar, MobileNav, Typography, Button, IconButton } from "@material-tailwind/react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+
+import { useCartContext } from "../../context/useCartContext";
 
 export default function Nav() {
   const router = useRouter();

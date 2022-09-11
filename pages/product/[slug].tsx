@@ -7,7 +7,7 @@ import { SingleProduct } from "@/modules/products/product/SingleProduct";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 
-import image from "../../assets/singleprod.jpg";
+import image from "../../src/assets/singleprod.jpg";
 
 const Product = () => {
   const router = useRouter();

@@ -1,8 +1,9 @@
-import { LineItem } from "@chec/commerce.js/types/line-item";
 import { Button } from "@material-tailwind/react";
+
+import { useRemoveFromCart, useUpdateCart } from "@/core/hooks/useCart";
+import { LineItem } from "@chec/commerce.js/types/line-item";
 import Image from "next/image";
 
-import { useRemoveFromCart, useUpdateCart } from "../../core/hooks/useCart";
 import { LoadingSpinner } from "../UI/LoadingSpinner";
 
 export const CartItem = (product: LineItem) => {
