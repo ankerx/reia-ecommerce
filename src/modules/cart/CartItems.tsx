@@ -1,6 +1,7 @@
 import { Cart } from "@chec/commerce.js/types/cart";
 
 import { CartItem } from "./CartItem";
+
 interface IProps {
   products: Cart;
 }

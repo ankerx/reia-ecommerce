@@ -7,7 +7,7 @@ import "tailwindcss/tailwind.css";
 
 import { CartProvider } from "../src/context/context";
 import { Layout } from "../src/modules/UI/Layout";
-import "../styles/globals.css";
+import "../src/styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
