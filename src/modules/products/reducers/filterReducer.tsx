@@ -1,10 +1,8 @@
 import { Product } from "@chec/commerce.js/types/product";
-import { useReducer } from "react";
-import { useProducts } from "../../../core/hooks/useProducts";
 
 export type IState = {
-  products: Product[] | [];
-  filteredProducts: Product[] | [];
+  products: Product[];
+  filteredProducts: Product[];
   category: string;
   searchQuery: string;
   price?: [number, number];
@@ -39,27 +37,4 @@ export const filterReducer = (state: IState, action: Action) => {
     default:
       return state;
   }
-};
-
-export const useFilter = () => {
-  const { data } = useProducts();
-  const initialState: IState = {
-    products: data?.data || [],
-    filteredProducts: data?.data || [],
-    category: "all",
-    searchQuery: "",
-  };
-  const [state, dispatch] = useReducer(filterReducer, initialState);
-
-  const filterBySearch = (text: string) => {
-    dispatch({ type: "SEARCH_PRODUCTS", payload: text });
-  };
-  const filterByCategory = (category: string) => {
-    dispatch({ type: "SET_CATEGORY", payload: category });
-  };
-  return {
-    state,
-    filterBySearch,
-    filterByCategory,
-  };
 };

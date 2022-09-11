@@ -1,7 +1,6 @@
-import { useFilter } from "../hooks/useFilter";
-
 interface IProps {
   categories: string[] | undefined;
+  handleSearchByCategory: (category: string) => void;
 }
 const capitalizeFirstLetter = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 

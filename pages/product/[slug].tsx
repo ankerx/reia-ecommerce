@@ -1,13 +1,14 @@
-import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { GetStaticPaths, GetStaticProps } from "next";
+
+import { Banner } from "@/modules/UI/Banner";
+import { LoadingSpinner } from "@/modules/UI/LoadingSpinner";
+import { getProduct, useProduct } from "@/modules/products/hooks/useProduct";
+import { SingleProduct } from "@/modules/products/product/SingleProduct";
+import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 
-import { getProduct, useProduct } from "../../modules/products/hooks/useProduct";
-import { SingleProduct } from "../../modules/products/product/SingleProduct";
-import { Banner } from "../../modules/UI/Banner";
-import { LoadingSpinner } from "../../modules/UI/LoadingSpinner";
 import image from "../../assets/singleprod.jpg";
-import { FeaturedProducts } from "../../modules/products/product/FeaturedProducts";
+
 const Product = () => {
   const router = useRouter();
 
