@@ -4,7 +4,7 @@ import { ChangeEvent, useReducer } from "react";
 import { ProductCollection } from "@chec/commerce.js/features/products";
 
 import { AllProducts } from "./AllProducts";
-import { CheckboxContainer } from "./components/CheckBoxContainer";
+import { CheckboxContainer } from "./components/CheckboxContainer";
 import { FilterCategory } from "./components/FilterCategory";
 import { useCategories } from "./hooks/useCategories";
 import { filterReducer } from "./reducers/filterReducer";
