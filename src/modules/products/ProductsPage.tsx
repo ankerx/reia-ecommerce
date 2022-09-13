@@ -3,11 +3,7 @@ import { ChangeEvent, useReducer } from "react";
 
 import { ProductCollection } from "@chec/commerce.js/features/products";
 
-<<<<<<< HEAD
 import { AllProducts } from "./ProductsList";
-=======
-import { AllProducts } from "./AllProducts";
->>>>>>> a98790045519f9526abe4e784a240aa5876fb04a
 import { CheckboxContainer } from "./components/CheckboxContainer";
 import { FilterCategory } from "./components/FilterCategory";
 import { filterReducer } from "./filterReducer";

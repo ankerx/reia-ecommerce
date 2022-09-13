@@ -3,6 +3,7 @@ import { Button } from "@material-tailwind/react";
 import { useRemoveFromCart, useUpdateCart } from "@/core/hooks/useCart";
 import { LineItem } from "@chec/commerce.js/types/line-item";
 import Image from "next/image";
+import Link from "next/link";
 
 import { LoadingSpinner } from "../UI/LoadingSpinner";
 
@@ -13,7 +14,15 @@ export const CartItem = (product: LineItem) => {
   return (
     <li className="py-6 flex">
       <div className="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
-        <Image src={product.image?.url || ""} alt={product.name} width={100} height={100} />
+        <Link href={`product/${product.product_id}`}>
+          <Image
+            src={product.image?.url || ""}
+            alt={product.name}
+            width={100}
+            height={100}
+            className="cursor-pointer"
+          />
+        </Link>
       </div>
       <div className="ml-4 flex-1 flex flex-col">
         <div className="flex justify-between text-base font-medium text-gray-900">

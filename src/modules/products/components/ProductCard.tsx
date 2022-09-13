@@ -19,7 +19,7 @@ import { LoadingSpinner } from "../../UI/LoadingSpinner";
 interface IProps {
   product: Product;
 }
-export const ProductItem = ({ product }: IProps) => {
+export const ProductCard = ({ product }: IProps) => {
   const { toggleCart } = useCartContext();
   const { mutate, isLoading } = useAddToCart(product.id);
 
@@ -53,6 +53,7 @@ export const ProductItem = ({ product }: IProps) => {
           <Typography variant="small">{product.price.formatted_with_symbol}</Typography>
           <Typography variant="small" color="gray" className="flex gap-1">
             <Button
+              id="add-to-cart"
               onClick={() => {
                 mutate();
                 toggleCart();

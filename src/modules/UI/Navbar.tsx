@@ -42,7 +42,7 @@ export default function Nav() {
   const routes = [
     { name: "Home", path: "/" },
     { name: "Massage", path: "/massage" },
-    { name: "Shop", path: "/products" },
+    { name: "Products", path: "/products" },
     { name: "About me", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -82,6 +82,7 @@ export default function Nav() {
         </Link>
         <div className="hidden lg:block">{navList}</div>
         <button
+          id="cartBtn"
           onClick={() => toggleCart()}
           className={`hidden lg:inline-block hover:scale-110 text-white `}
         >
