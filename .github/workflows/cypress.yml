@@ -12,11 +12,11 @@ jobs:
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Checkout
-        # uses: actions/checkout@v2
+        uses: actions/checkout@v2
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
-        # uses: cypress-io/github-action@v4@ # use the explicit version number
+        uses: ./ # use the explicit version number
         with:
           build: npm run build
           start: npm start
