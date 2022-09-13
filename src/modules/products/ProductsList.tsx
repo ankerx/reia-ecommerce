@@ -1,7 +1,7 @@
 import { Product } from "@chec/commerce.js/types/product";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { ProductItem } from "./ProductItem";
+import { ProductItem } from "./components/ProductCard";
 
 interface IProps {
   filteredProducts: Product[];

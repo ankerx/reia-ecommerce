@@ -10,7 +10,7 @@ export const CheckboxContainer = ({ handleFilterByPrice }: IProps) => {
     { label: "101-200", value: ["101", "200"] },
   ];
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mt-6">
       {options.map((item) => {
         return (
           <Radio

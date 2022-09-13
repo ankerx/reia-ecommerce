@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import { Banner } from "@/modules/UI/Banner";
-import { LoadingSpinner } from "@/modules/UI/LoadingSpinner";
+import { LargeLoadingSpinner } from "@/modules/components/LargeLoadingSpinner";
 import { getProduct, useProduct } from "@/modules/products/hooks/useProduct";
 import { SingleProduct } from "@/modules/products/product/SingleProduct";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
@@ -17,14 +17,21 @@ const Product = () => {
   const { data, isLoading, error } = useProduct(productID);
   console.log(data);
 
-  if (isLoading) return <LoadingSpinner />;
-
   if (error) return <p>'An error has occurred:{error.message}'</p>;
 
   return (
-    <section className="flex flex-col items-center ">
-      <Banner text="Single product" img={image} />
-      <SingleProduct product={data} />
+    <section className="flex flex-col items-center min-h-[100vh]">
+      {isLoading ? (
+        <div className="mt-52">
+          {" "}
+          <LargeLoadingSpinner />
+        </div>
+      ) : (
+        <>
+          <Banner text="Single product" img={image} />
+          <SingleProduct product={data} />
+        </>
+      )}
     </section>
   );
 };
