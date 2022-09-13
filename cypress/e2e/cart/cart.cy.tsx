@@ -2,7 +2,7 @@
 
 context("Shopping Cart", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000");
+    cy.visit("https://reia-ecommerce.vercel.app/");
   });
 
   it("should open the shopping cart", () => {
@@ -13,7 +13,7 @@ context("Shopping Cart", () => {
   });
 
   it("should add and remove product from cart", () => {
-    cy.visit("http://localhost:3000/product/prod_r2LM5QzEvRlZV1");
+    cy.visit("https://reia-ecommerce.vercel.app/product/prod_r2LM5QzEvRlZV1");
     cy.get("#add-btn").click();
 
     cy.get(".h-full > .border-t > .flex > :nth-child(1)").contains("Subtotal");

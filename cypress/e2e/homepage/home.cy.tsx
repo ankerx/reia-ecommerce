@@ -2,7 +2,7 @@
 
 context("Home Page", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000");
+    cy.visit("https://reia-ecommerce.vercel.app/");
   });
 
   it("should render the home page and display a hero section", () => {
