@@ -3,16 +3,10 @@ import { useEffect, useState } from "react";
 
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import { useCartContext } from "../../context/useCartContext";
 
 export default function Nav() {
-  const router = useRouter();
-  const path = router.pathname;
-
-  // const changeNavColor = path === "/" || path === "/products";
-
   const { toggleCart } = useCartContext();
   const [openNav, setOpenNav] = useState(false);
   const [width, setWidth] = useState(0);
