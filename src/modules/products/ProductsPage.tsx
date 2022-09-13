@@ -3,11 +3,15 @@ import { ChangeEvent, useReducer } from "react";
 
 import { ProductCollection } from "@chec/commerce.js/features/products";
 
+<<<<<<< HEAD
+import { AllProducts } from "./ProductsList";
+=======
 import { AllProducts } from "./AllProducts";
+>>>>>>> a98790045519f9526abe4e784a240aa5876fb04a
 import { CheckboxContainer } from "./components/CheckboxContainer";
 import { FilterCategory } from "./components/FilterCategory";
+import { filterReducer } from "./filterReducer";
 import { useCategories } from "./hooks/useCategories";
-import { filterReducer } from "./reducers/filterReducer";
 
 interface IProps {
   products: ProductCollection;
@@ -42,9 +46,12 @@ export const ProductsPage = ({ products }: IProps) => {
 
   return (
     <>
-      <div className="lg:flex justify-between relative ">
-        <div className="flex flex-col w-1/4 p-10 h-[100%] mt-10 bg-white rounded-lg items-start text-left">
-          <div className="max-w-sm my-10 ">
+      <div className="2xl:flex justify-between relative max-w-[1500px]">
+        <div className="max-w-sm my-10 mx-auto  2xl:hidden">
+          <Input color="brown" label="Search for a product" onChange={handleSearchByQuery} />
+        </div>
+        <div className="hidden 2xl:flex flex-col  p-10 h-[100%] mt-10 mr-10 bg-white rounded-lg items-start text-left">
+          <div className="max-w-sm my-10 ml-2">
             <Input color="brown" label="Search for a product" onChange={handleSearchByQuery} />
           </div>
           <FilterCategory categories={categories} handleSearchByCategory={handleSearchByCategory} />

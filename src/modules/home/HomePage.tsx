@@ -1,7 +1,9 @@
-import { ProductCollection } from "@chec/commerce.js/features/products";
 import { Button } from "@material-tailwind/react";
+
+import { ProductCollection } from "@chec/commerce.js/features/products";
 import Link from "next/link";
-import { ProductItem } from "../products/ProductItem";
+
+import { ProductItem } from "../products/components/ProductCard";
 import { Heading } from "./Heading";
 
 interface IProps {

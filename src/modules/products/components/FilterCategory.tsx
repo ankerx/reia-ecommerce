@@ -6,8 +6,8 @@ const capitalizeFirstLetter = (str: string) => str.charAt(0).toUpperCase() + str
 
 export const FilterCategory = ({ categories, handleSearchByCategory }: IProps) => {
   return (
-    <>
-      <p className="text-xl mb-3">Categories</p>
+    <div className="ml-2">
+      <p className="text-xl mb-2">Categories</p>
       <ul className="text-md">
         <li className="mb-1">
           <button onClick={() => handleSearchByCategory("all")}>All</button>
@@ -22,6 +22,6 @@ export const FilterCategory = ({ categories, handleSearchByCategory }: IProps) =
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };

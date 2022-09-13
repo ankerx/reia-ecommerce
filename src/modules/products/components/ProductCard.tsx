@@ -14,7 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCartContext } from "src/context/useCartContext";
 
-import { LoadingSpinner } from "../UI/LoadingSpinner";
+import { LoadingSpinner } from "../../UI/LoadingSpinner";
 
 interface IProps {
   product: Product;
