@@ -29,6 +29,7 @@ yarn-error.log*
 .env*.local
 .env
 
+>>>>>>> 6693e6e2c104aa185343e097eb34d0a89e1adff2
 # vercel
 .vercel
 
