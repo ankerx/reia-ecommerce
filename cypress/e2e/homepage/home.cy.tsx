@@ -15,7 +15,15 @@ context("Home Page", () => {
   it("should redirect to different page", () => {
     cy.get('a[href*="products"]').click({ multiple: true, force: true });
     cy.url().should("include", "https://reia-ecommerce.vercel.app/products");
-    cy.get("h3").contains("All products are made by myself");
+    cy.get(".mx-auto > .relative > .peer").should("be.visible");
+  });
+  it("should filter products", () => {
+    cy.visit("https://reia-ecommerce.vercel.app/products");
+    cy.url().should("include", "https://reia-ecommerce.vercel.app/products");
+    const serachInput = cy.get(".mx-auto > .relative > .peer");
+    serachInput.should("be.visible");
+    serachInput.type("oil");
+    cy.get(".tracking-normal").contains("Sunny Oil");
   });
 });
 export {};
