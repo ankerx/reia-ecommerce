@@ -41,6 +41,7 @@ export const SingleProduct = ({ product }: IProduct) => {
           </p>
           <div className="flex">
             <Button
+              id="add-btn"
               size="lg"
               onClick={() => {
                 mutate();

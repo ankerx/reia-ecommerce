@@ -11,7 +11,8 @@
     "lint:ci": "eslint 'pages/*' --ext .jsx,.js,.ts,.tsx --cache --ignore-path ./.gitignore ",
     "lint:fix": "eslint 'pages/*' --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore ",
     "lint:format": "prettier --write 'pages/*'",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
@@ -40,6 +41,7 @@
     "@types/react-image-gallery": "^1.0.5",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "autoprefixer": "^10.4.8",
+    "cypress": "^10.8.0",
     "eslint": "^8.23.0",
     "eslint-config-next": "^12.2.5",
     "eslint-config-prettier": "^8.5.0",

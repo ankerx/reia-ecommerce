@@ -3,7 +3,7 @@ import { Button } from "@material-tailwind/react";
 import { ProductCollection } from "@chec/commerce.js/features/products";
 import Link from "next/link";
 
-import { ProductItem } from "../products/components/ProductCard";
+import { ProductCard } from "../products/components/ProductCard";
 import { Heading } from "./Heading";
 
 interface IProps {
@@ -15,7 +15,7 @@ export const HomePage = ({ products }: IProps) => {
       <Heading />
       <div className="grid gap-x-10 md:gap-x-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 place-items-center ">
         {products.data.map((product) => (
-          <ProductItem key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
 
