@@ -19,6 +19,7 @@ context("Shopping Cart", () => {
     cy.get(".h-full > .border-t > .flex > :nth-child(1)").contains("Subtotal");
     cy.get(".border-t > .flex > :nth-child(2)").contains("zł55.00");
 
+    //remove
     const removeBtn = cy.get(".flex-1 > .flex > .middle");
     removeBtn.click();
     cy.get(".h-full > .border-t > .flex > :nth-child(1)").contains("Subtotal");
