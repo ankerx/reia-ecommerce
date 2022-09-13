@@ -14,7 +14,7 @@ context("Home Page", () => {
   });
   it("should redirect to different page", () => {
     cy.get('a[href*="products"]').click({ multiple: true, force: true });
-    cy.url().should("include", "/products");
+    cy.url().should("include", "https://reia-ecommerce.vercel.app/products");
     cy.get("h3").contains("All products are made by myself");
   });
 });
