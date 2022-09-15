@@ -23,7 +23,7 @@ Products can be filtered by category or searched by name. Adding product to shop
 
 ## ⭐️ What did I learn
 
-I learned how to implement very important feature which are payments. Using typescript and react query working with APIs.
+I learned how to implement very important feature which are payments. Using typescript and react query working with APIs. Cypress is very good tool in apps like that to test all the flow that user is experiencing.
 
 
 ### Setup
