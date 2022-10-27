@@ -2,7 +2,7 @@
 
 E-commerce store for massage and handmade products. Using NextJS and Static Site Generation provides a very good user experience. All products are fetched from headless CMS, which allows adding every new product very easily. Payments are handled by Stripe. After successful checkout client receives a confirmation email. E2E tests written in Cypress.
 
-See live version here: ecommerce-ankerx.vercel.app
+See live version here: https://reia-ecommerce.vercel.app/
 
 ## 📦 Technologies
 
