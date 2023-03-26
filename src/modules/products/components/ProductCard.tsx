@@ -31,7 +31,7 @@ export const ProductCard = ({ product }: IProps) => {
       exit={{ opacity: 0 }}
       transition={{ delay: 0.1 }}
     >
-      <Card className="my-14 min-w-[280px] max-w-sm  ">
+      <Card className="my-14 min-w-[280px] max-w-sm h-[500px] ">
         <CardHeader color="brown" className="relative h-56 ">
           <Link href={`/product/${product.id}`}>
             <Image
