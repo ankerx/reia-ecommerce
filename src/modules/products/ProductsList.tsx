@@ -3,10 +3,10 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { ProductCard } from "./components/ProductCard";
 
-interface IProps {
+interface Props {
   filteredProducts: Product[];
 }
-export const AllProducts = ({ filteredProducts }: IProps) => {
+export const AllProducts = ({ filteredProducts }: Props) => {
   return (
     <AnimatePresence>
       <motion.div

@@ -14,7 +14,6 @@ export interface IProduct {
 export const SingleProduct = ({ product }: IProduct) => {
   const { toggleCart } = useCartContext();
   const { mutate } = useAddToCart(product.id);
-  console.log(product);
 
   return (
     <div className="w-full mt-10  px-6 md:px-20 py-10 ">

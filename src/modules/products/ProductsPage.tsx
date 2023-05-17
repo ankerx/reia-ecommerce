@@ -4,16 +4,15 @@ import { ChangeEvent, useReducer } from "react";
 import { ProductCollection } from "@chec/commerce.js/features/products";
 
 import { AllProducts } from "./ProductsList";
-
 import { CheckboxContainer } from "./components/CheckboxContainer";
 import { FilterCategory } from "./components/FilterCategory";
 import { filterReducer } from "./filterReducer";
 import { useCategories } from "./hooks/useCategories";
 
-interface IProps {
+interface Props {
   products: ProductCollection;
 }
-export const ProductsPage = ({ products }: IProps) => {
+export const ProductsPage = ({ products }: Props) => {
   const { data: categoriesData } = useCategories();
 
   const initialState = {

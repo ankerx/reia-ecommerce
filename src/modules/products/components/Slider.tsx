@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef, ChangeEvent } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 
-interface IProps {
+interface Props {
   min: number;
   max: number;
   onChange: ({ min, max }: { min: number; max: number }) => void;
 }
-export const RangeSlider = ({ min, max, onChange }: IProps) => {
+export const RangeSlider = ({ min, max, onChange }: Props) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
 
@@ -31,7 +31,6 @@ export const RangeSlider = ({ min, max, onChange }: IProps) => {
             const value = Math.min(+event.target.value, maxVal - 1);
             setMinVal(value);
             event.target.value = value.toString();
-            console.log(minVal);
           }}
           className="mb-3 rounded-lg appearance-none bg-brown-200"
         />

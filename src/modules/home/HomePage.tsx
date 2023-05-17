@@ -6,10 +6,10 @@ import Link from "next/link";
 import { ProductCard } from "../products/components/ProductCard";
 import { Heading } from "./Heading";
 
-interface IProps {
+interface Props {
   products: ProductCollection;
 }
-export const HomePage = ({ products }: IProps) => {
+export const HomePage = ({ products }: Props) => {
   return (
     <section className="mx-6 md:mx-20 py-10 text-center">
       <Heading />
