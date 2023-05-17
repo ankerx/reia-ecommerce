@@ -1,9 +1,9 @@
 import { Radio } from "@material-tailwind/react";
 
-interface IProps {
+interface Props {
   handleFilterByPrice: (price: string[]) => void;
 }
-export const CheckboxContainer = ({ handleFilterByPrice }: IProps) => {
+export const CheckboxContainer = ({ handleFilterByPrice }: Props) => {
   const options = [
     { label: "0-50", value: ["0", "50"] },
     { label: "51-100", value: ["51", "100"] },

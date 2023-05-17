@@ -11,12 +11,12 @@ import Image from "next/image";
 
 import image from "../../../assets/hands.jpg";
 
-interface IProps {
+interface Props {
   title: string;
   description: string[];
   flexPosition?: boolean;
 }
-export const MassageInfo = ({ title, description, flexPosition }: IProps) => {
+export const MassageInfo = ({ title, description, flexPosition }: Props) => {
   return (
     <div className="w-full flex flex-col xl:flex-row items-center  my-5 text-gray-700 py-5 ">
       <div className="xl:w-3/5 ">

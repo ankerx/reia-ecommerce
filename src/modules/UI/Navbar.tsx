@@ -37,7 +37,6 @@ export default function Nav() {
     { name: "Home", path: "/" },
     { name: "Massage", path: "/massage" },
     { name: "Products", path: "/products" },
-    { name: "About me", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
   const navList = (
@@ -77,7 +76,7 @@ export default function Nav() {
         <div className="hidden lg:block">{navList}</div>
         <button
           id="cartBtn"
-          onClick={() => toggleCart()}
+          onClick={toggleCart}
           className={`hidden lg:inline-block hover:scale-110 text-white `}
         >
           <ShoppingCartIcon className="h-6 w-6" />

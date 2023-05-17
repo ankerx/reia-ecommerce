@@ -1,6 +1,6 @@
 import { Product } from "@chec/commerce.js/types/product";
 
-export type IState = {
+export type State = {
   products: Product[];
   filteredProducts: Product[];
   category: string;
@@ -13,7 +13,7 @@ export type Action =
   | { type: "SET_CATEGORY"; payload: string }
   | { type: "FILTER_BY_PRICE"; payload: string[] };
 
-export const filterReducer = (state: IState, action: Action) => {
+export const filterReducer = (state: State, action: Action) => {
   switch (action.type) {
     case "SEARCH_PRODUCTS":
       const searchedProducts = state.products.filter(({ name }) => {

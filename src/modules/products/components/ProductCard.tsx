@@ -16,10 +16,10 @@ import { useCartContext } from "src/context/useCartContext";
 
 import { LoadingSpinner } from "../../UI/LoadingSpinner";
 
-interface IProps {
+interface Props {
   product: Product;
 }
-export const ProductCard = ({ product }: IProps) => {
+export const ProductCard = ({ product }: Props) => {
   const { toggleCart } = useCartContext();
   const { mutate, isLoading } = useAddToCart(product.id);
 
