@@ -6,6 +6,11 @@ import Link from "next/link";
 
 import { useCartContext } from "../../context/useCartContext";
 
+const routes = [
+  { name: "Home", path: "/" },
+  { name: "Massage", path: "/massage" },
+  { name: "Products", path: "/products" },
+];
 export default function Nav() {
   const { toggleCart } = useCartContext();
   const [openNav, setOpenNav] = useState(false);
@@ -33,12 +38,6 @@ export default function Nav() {
     window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
   }, []);
 
-  const routes = [
-    { name: "Home", path: "/" },
-    { name: "Massage", path: "/massage" },
-    { name: "Products", path: "/products" },
-    { name: "Contact", path: "/contact" },
-  ];
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {routes.map((item) => {
