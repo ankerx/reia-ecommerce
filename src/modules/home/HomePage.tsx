@@ -11,9 +11,9 @@ interface Props {
 }
 export const HomePage = ({ products }: Props) => {
   return (
-    <section className="mx-6 md:mx-20 py-10 text-center">
+    <section className="mx-6 md:mx-20 py-10 text-center pb-32">
       <Heading />
-      <div className="grid gap-x-10 md:gap-x-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 place-items-center ">
+      <div className="grid gap-x-10 md:gap-x-24 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mt-6 place-items-center ">
         {products.data.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

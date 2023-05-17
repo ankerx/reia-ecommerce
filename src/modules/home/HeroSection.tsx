@@ -1,6 +1,7 @@
 import { Button } from "@material-tailwind/react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import heroimg from "../../assets/candless.jpg";
 
@@ -13,12 +14,11 @@ export const HeroSection = () => {
           Discover the Perfect Massage & Products!
         </h1>
         <div className="mt-52 lg:mt-60 xl:mt-80">
-          <Button color="white" className="mr-4 lg:text-lg lg:mr-10" variant="outlined">
-            Shop now
-          </Button>
-          <Button color="white" className="lg:text-lg" variant="outlined">
-            Massage
-          </Button>
+          <Link href="/products">
+            <Button color="white" className="lg:text-lg " variant="outlined">
+              Shop now
+            </Button>
+          </Link>
         </div>
       </div>
 
